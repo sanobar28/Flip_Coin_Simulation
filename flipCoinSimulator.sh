@@ -3,6 +3,7 @@
 heads=0
 tails=0
 
+
 for (( count=0; count<50; count++ ))
 do
 	flip=$(( RANDOM%2 ))
@@ -32,9 +33,16 @@ elif [ $tails -gt $heads ]
 then
 	tailwins=$(( $tails-$heads ))
 	echo "Tails won by $tailwins"
+
 elif [ $heads -eq $tails ]
 then
 	echo "Its a tie"
+	flip=$(( RANDOM%2 ))
+	((flip++))
+	while [ $(($heads-$tails)) -eq 2 ]
+	do
+		break
+	done
 fi
 
 
