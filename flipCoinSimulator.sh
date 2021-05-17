@@ -11,8 +11,31 @@ do
 		heads=$(( $heads+1 ))
 	else
 		tails=$(( $tails+1 ))
+	fi 
+
+
+	if [ $heads -eq 21 ] || [ $tails -eq 21 ]
+	then
+		break
 	fi
 done
 
-echo "Heads wins $heads number of times"
-echo "Tails wins $tails number of times"
+echo "Total heads- " $heads
+echo "Total tails- " $tails
+
+
+if [ $heads -gt $tails ]
+then
+	headwins=$(( $heads-$tails ))
+	echo "Heads won by $headwins"
+elif [ $tails -gt $heads ]
+then
+	tailwins=$(( $tails-$heads ))
+	echo "Tails won by $tailwins"
+elif [ $heads -eq $tails ]
+then
+	echo "Its a tie"
+fi
+
+
+
